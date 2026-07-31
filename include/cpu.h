@@ -7,8 +7,13 @@ private:
 
 public:
     CPU();
+
     void reset();
+
     void incrementPC();
+
+    void branch(int offset);
+
     int getPC() const;
 };
 

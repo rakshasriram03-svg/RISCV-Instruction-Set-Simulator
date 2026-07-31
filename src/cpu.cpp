@@ -1,17 +1,26 @@
 #include "../include/cpu.h"
 
-CPU::CPU() {
+CPU::CPU()
+{
     programCounter = 0;
 }
 
-void CPU::reset() {
+void CPU::reset()
+{
     programCounter = 0;
 }
 
-void CPU::incrementPC() {
+void CPU::incrementPC()
+{
     programCounter += 4;
 }
 
-int CPU::getPC() const {
+void CPU::branch(int offset)
+{
+    programCounter += offset;
+}
+
+int CPU::getPC() const
+{
     return programCounter;
 }
