@@ -3,9 +3,26 @@
 
 #include <string>
 
-class Decoder {
+struct DecodedInstruction
+{
+  
+    std::string opcode;
+
+    int rd;
+    int rs1;
+    int rs2;
+
+    int immediate;
+    bool isImmediate;
+
+    int address;
+
+};
+
+class Decoder
+{
 public:
-    void decode(const std::string& instruction);
+    DecodedInstruction decode(std::string instruction);
 };
 
 #endif

@@ -1,20 +1,29 @@
 #ifndef CPU_H
 #define CPU_H
 
-class CPU {
+#include "register_file.h"
+#include "instruction_memory.h"
+#include "decoder.h"
+#include "execute.h"
+#include "memory.h"
+
+class CPU
+{
 private:
-    int programCounter;
+    RegisterFile rf;
+    InstructionMemory im;
+    Decoder decoder;
+    Execute alu;
+    Memory memory;
+
+    int pc;
 
 public:
     CPU();
 
-    void reset();
+    void loadInstruction(std::string instruction);
 
-    void incrementPC();
-
-    void branch(int offset);
-
-    int getPC() const;
+    void run();
 };
 
 #endif

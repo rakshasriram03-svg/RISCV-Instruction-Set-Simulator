@@ -1,18 +1,20 @@
 #ifndef REGISTER_FILE_H
 #define REGISTER_FILE_H
 
+#include <iostream>
+
 class RegisterFile {
 private:
-    int registers[32];
+    int reg[32];
 
 public:
     RegisterFile();
 
-    int readRegister(int index);
+    int read(int index);
 
-    void writeRegister(int index, int value);
+    void write(int index, int value);
 
-    void reset();
+    void dump();
 };
 
 #endif

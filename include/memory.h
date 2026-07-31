@@ -1,18 +1,17 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
-#include <vector>
-
-class Memory {
+class Memory
+{
 private:
-    std::vector<int> dataMemory;
+    int mem[1024];
 
 public:
     Memory();
 
-    void storeWord(int address, int value);
+    void write(int address, int value);
 
-    int loadWord(int address);
+    int read(int address);
 };
 
 #endif

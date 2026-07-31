@@ -2,23 +2,20 @@
 
 Memory::Memory()
 {
-    dataMemory.resize(1024, 0);
+    for(int i=0;i<1024;i++)
+        mem[i]=0;
 }
 
-void Memory::storeWord(int address, int value)
+void Memory::write(int address,int value)
 {
-    if (address >= 0 && address < 1024)
-    {
-        dataMemory[address] = value;
-    }
+    if(address>=0 && address<1024)
+        mem[address]=value;
 }
 
-int Memory::loadWord(int address)
+int Memory::read(int address)
 {
-    if (address >= 0 && address < 1024)
-    {
-        return dataMemory[address];
-    }
+    if(address>=0 && address<1024)
+        return mem[address];
 
     return 0;
 }

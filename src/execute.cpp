@@ -1,31 +1,24 @@
 #include "../include/execute.h"
 
-int Execute::add(int a, int b)
+int Execute::execute(DecodedInstruction instruction, int value1, int value2)
 {
-    return a + b;
-}
+    if(instruction.opcode=="ADD")
+        return value1+value2;
 
-int Execute::sub(int a, int b)
-{
-    return a - b;
-}
+    if(instruction.opcode=="SUB")
+        return value1-value2;
 
-int Execute::andOp(int a, int b)
-{
-    return a & b;
-}
+    if(instruction.opcode=="AND")
+        return value1 & value2;
 
-int Execute::orOp(int a, int b)
-{
-    return a | b;
-}
+    if(instruction.opcode=="OR")
+        return value1 | value2;
 
-int Execute::xorOp(int a, int b)
-{
-    return a ^ b;
-}
+    if(instruction.opcode=="XOR")
+        return value1 ^ value2;
+        
+    if(instruction.opcode=="ADDI")
+    return value1 + instruction.immediate;
 
-int Execute::addi(int a, int imm)
-{
-    return a + imm;
+    return 0;
 }
