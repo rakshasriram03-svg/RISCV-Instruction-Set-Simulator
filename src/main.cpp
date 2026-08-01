@@ -1,19 +1,35 @@
+
 #include "../include/cpu.h"
+#include <iostream>
+#include <string>
 
 int main()
 {
     CPU cpu;
 
-    cpu.loadInstruction("ADD x3,x1,x2");
-    cpu.loadInstruction("SUB x4,x3,x1");
-    cpu.loadInstruction("ADDI x8,x1,50");
+    int n;
 
-    cpu.loadInstruction("SW x3,300");
-    cpu.loadInstruction("LW x9,300");
+    std::cout << "=============================\n";
+    std::cout << "   RISC-V Instruction Simulator\n";
+    std::cout << "=============================\n\n";
 
-    cpu.loadInstruction("AND x5,x3,x2");
-    cpu.loadInstruction("OR x6,x1,x2");
-    cpu.loadInstruction("XOR x7,x1,x2");
+    std::cout << "Enter number of instructions: ";
+    std::cin >> n;
+
+    std::cin.ignore();
+
+    for(int i = 0; i < n; i++)
+    {
+        std::string instruction;
+
+        std::cout << "Instruction " << i + 1 << ": ";
+
+        std::getline(std::cin, instruction);
+
+        cpu.loadInstruction(instruction);
+    }
+
+    std::cout << "\nExecuting Program...\n\n";
 
     cpu.run();
 
